@@ -44,7 +44,9 @@ highlight BadWhitespace ctermbg=red guibg=#BBBB00
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
-set clipboard=unnamed
+if $TMUX == ''
+    set clipboard=unnamed
+endif
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
